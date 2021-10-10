@@ -7,7 +7,7 @@ import { HelloComponent } from './hello.component';
 import { LoginComponent } from './login.component';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   declarations: [AppComponent, HelloComponent, LoginComponent],
   bootstrap: [AppComponent],
 })

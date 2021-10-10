@@ -1,6 +1,7 @@
 import { Component, VERSION } from '@angular/core';
 //import { FormGroup, /*FormControl*/, Validators } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PasswordValidator } from './passwordvalidator';
 
 @Component({
   selector: 'login',
@@ -16,7 +17,13 @@ export class LoginComponent {
   constructor(fb: FormBuilder) {
     this.form = fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: [
+        '',
+        Validators.compose([
+          Validators.required,
+          PasswordValidator.cannotContainSpace,
+        ]),
+      ],
     });
   }
 

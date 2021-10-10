@@ -24,11 +24,17 @@
     />
   </div>
   <div
-    *ngIf="form.controls.password.touched && !form.controls.password.valid"
+    *ngIf="form.controls.password.touched && form.controls.password.errors"
     class="alert alert-danger"
   >
-    Password is required
+    <div
+      *ngIf="form.controls.password.errors.required"
+      class="alert alert-danger"
+    >
+      Password is required
+    </div>
   </div>
+
   <br />
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>

@@ -2,6 +2,7 @@ import { Component, VERSION } from '@angular/core';
 //import { FormGroup, /*FormControl*/, Validators } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidator } from './passwordvalidator';
+import { LoginService } from './Login.Service';
 
 @Component({
   selector: 'login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   });*/
 
   form: FormGroup;
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private _loginService: LoginService) {
     this.form = fb.group({
       username: ['', Validators.required],
       password: [
@@ -28,6 +29,11 @@ export class LoginComponent {
   }
 
   login() {
+    var result=this._loginService.login(this.form.controls['username'].value,this.form.controls['password'].value)
+    if(!result)
+    {
+      this.form.controls['password'].setErrors({invalidLogin:true});
+    }
     console.log(this.form.value);
   }
 }

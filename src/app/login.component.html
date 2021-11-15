@@ -33,6 +33,12 @@
     >
       Password is required
     </div>
+    <div
+      *ngIf="form.controls.password.errors.cannotContainSpace"
+      class="alert alert-danger"
+    >
+      Password cannot contain space
+    </div>
   </div>
 
   <br />

@@ -15,7 +15,7 @@ export class AppComponent {
     this.searchcontrol.valueChanges
       .pipe(
         filter((text) => text.length > 3),
-        debounceTime(400)
+        debounceTime(4000)
       )
       .subscribe((value) => {
         console.log(value);

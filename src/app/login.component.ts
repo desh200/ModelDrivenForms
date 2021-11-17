@@ -2,7 +2,7 @@ import { Component, VERSION } from '@angular/core';
 //import { FormGroup, /*FormControl*/, Validators } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidator } from './passwordvalidator';
-import { LoginService } from './Login.Service';
+import { LoginService } from './Login.service';
 
 @Component({
   selector: 'login',
@@ -29,10 +29,12 @@ export class LoginComponent {
   }
 
   login() {
-    var result=this._loginService.login(this.form.controls['username'].value,this.form.controls['password'].value)
-    if(!result)
-    {
-      this.form.controls['password'].setErrors({invalidLogin:true});
+    var result = this._loginService.login(
+      this.form.controls['username'].value,
+      this.form.controls['password'].value
+    );
+    if (!result) {
+      this.form.controls['password'].setErrors({ invalidLogin: true });
     }
     console.log(this.form.value);
   }

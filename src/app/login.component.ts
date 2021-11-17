@@ -2,7 +2,7 @@ import { Component, VERSION } from '@angular/core';
 //import { FormGroup, /*FormControl*/, Validators } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidator } from './passwordvalidator';
-import { LoginService } from './Login.service';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'login',
